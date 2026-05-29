@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit",
+      "Write",
+      "Bash(git:status)",
+      "Bash(git:diff)",
+      "Bash(git:log)",
+      "Bash(git:add)",
+      "Bash(git:commit)",
+      "Bash(git:branch)",
+      "Bash(git:checkout)",
+      "Bash(npm:*)",
+      "Bash(pnpm:*)",
+      "Bash(yarn:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "WebSearch",
+      "WebFetch",
+      "Skill(*)",
+      "TaskCreate",
+      "TaskUpdate",
+      "TaskList",
+      "TaskGet",
+      "Agent(*)",
+      "AskUserQuestion"
+    ],
+    "deny": [
+      "Bash(rm -rf /*)",
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)"
+    ],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash D:/claude_code_project/.claude/hooks/session-end.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "model": "deepseek-v4-pro"
+}
